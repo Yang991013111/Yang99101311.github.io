@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Chokokutai&family=Orbitron:wght@400..900&family=Protest+Guerrilla&family=Rubik+80s+Fade&family=Rubik+Lines&family=Sixtyfour&display=swap');
-
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
 html, body {
     margin: 0;
     padding: 0;
@@ -21,6 +25,7 @@ canvas {
     overflow-y: auto;
     z-index: 99;
     background: transparent;
+
 }
 .video_con{
     position: absolute;
@@ -126,3 +131,94 @@ img{
 .text1 div{
     width: 30%;
 }
+.chart_title{
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 30px;
+    color: white;
+    text-align: center;
+    line-height: 1.5;
+}
+.chart_des{
+    width: 100%;
+    text-align: center;
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 24px;
+    color: white;
+    margin-top: 20px;
+}
+.chart{
+    width: 600px;
+    height: 500px;
+    background: #F5F5F5;
+    margin: 40px auto;
+}
+.chart_list{
+    width: 100%;
+    height: 450px;
+    padding: 20px;
+    overflow-y: auto;
+    box-sizing: border-box;
+}
+.chart_ipt{
+    width: 100%;
+    height: 50px;
+    border-top:1px solid #ECECEC;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    background: #C6C4C4;
+
+}
+.ipt{
+    width: calc(100% - 100px);
+    height: 40px;
+    display: block;
+    border: none;
+    background: white;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    padding:0 10px;
+    outline: none;
+}
+.chart_ipt button{
+    width: 80px;
+    height: 40px;
+    border: none;
+    border-left: 1px solid #F5F5F5;
+    background: #E9E9E9;
+    cursor: pointer;
+    font-family: Arial;
+}
+.left_text_chart{
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    margin: 10px 0;
+}
+.right_text_chart{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    margin: 10px 0;
+}
+.left_text_chart>p{
+    background: white;
+    width: auto;
+    display: inline-block;
+    max-width: 70%;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: justify;
+}
+.right_text_chart>p{
+    background: #95EC69;
+    display: inline-block;
+    max-width: 70%;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: justify;
+    margin-left: auto;
+}
+
