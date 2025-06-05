@@ -14,7 +14,8 @@
                 <br>
                 <span>Justin McGuirk</span>
             </div>
-            <div class="chart_list">
+            <div class="chart_list" id="scrollContainer">
+                <div class="progress-bar" id="progressBar"></div>
                 <div class="left_text_chart">
                     <p>
                         In 1972, as part of MoMA’s exhibition “Italy: The
@@ -781,21 +782,69 @@
                     has yet to infect architecture. Architecture is
                     still focused on objects.
                 </p></div>
-                <div class="left_text_chart"><p>
-                    Or, as Easterling puts it:
-                    “Architecture is making the occasional stone in the
-                    water. The world is making the water.”
-                </p></div>
+<!--                <div class="left_text_chart"><p>-->
+<!--                    Or, as Easterling puts it:-->
+<!--                    “Architecture is making the occasional stone in the-->
+<!--                    water. The world is making the water.”-->
+<!--                </p></div>-->
             </div>
             <div class="chart_ipt">
-                <textarea class="ipt"></textarea>
+                <textarea class="ipt">Or, as Easterling puts it:“Architecture is making the occasional stone in the water. The world is making the water.”</textarea>
                 <button>SUBMIT</button>
             </div>
         </div>
     </div>
-    <video src="./video.mp4" controls class="video_con"></video>
+    <video src="./video.mp4" autoplay muted class="video_con"></video>
 </div>
 <!--<script src="js.js"></script>-->
 
+
+<script>
+    const scrollContainer = document.getElementById('scrollContainer');
+    const progressBar = document.getElementById('progressBar');
+
+    // 定义起始和结束颜色 (RGB格式)
+    const startColor = { r: 233, g: 233, b: 233 }; // 亮黄色
+    const endColor = { r: 45, g: 42, b: 46 };    // 深灰色
+
+    // 滚动事件处理函数
+    function handleScroll() {
+        // 计算滚动进度 (0到1之间的值)
+        const scrollTop = scrollContainer.scrollTop;
+        const scrollHeight = scrollContainer.scrollHeight - scrollContainer.clientHeight;
+        const scrollProgress = scrollTop / scrollHeight;
+
+        // 更新进度条
+        progressBar.style.width = `${scrollProgress * 100}%`;
+
+        // 计算当前颜色
+        const currentColor = {
+            r: Math.round(startColor.r + (endColor.r - startColor.r) * scrollProgress),
+            g: Math.round(startColor.g + (endColor.g - startColor.g) * scrollProgress),
+            b: Math.round(startColor.b + (endColor.b - startColor.b) * scrollProgress)
+        };
+
+        // 转换为十六进制格式
+        const hexColor = `#${((1 << 24) + (currentColor.r << 16) + (currentColor.g << 8) + currentColor.b).toString(16).slice(1)}`;
+
+        // 更新背景颜色和指示器
+        scrollContainer.style.backgroundColor = hexColor;
+    }
+
+    // 使用requestAnimationFrame优化滚动事件处理
+    let isScrolling = false;
+    scrollContainer.addEventListener('scroll', () => {
+        if (!isScrolling) {
+            window.requestAnimationFrame(() => {
+                handleScroll();
+                isScrolling = false;
+            });
+            isScrolling = true;
+        }
+    });
+
+    // 初始化
+    handleScroll();
+</script>
 </body>
 </html>
