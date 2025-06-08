@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Chokokutai&family=Orbitron:wght@400..900&family=Protest+Guerrilla&family=Rubik+80s+Fade&family=Rubik+Lines&family=Sixtyfour&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bangers&family=Permanent+Marker&display=swap');
+
 *{
     padding: 0;
     margin: 0;
@@ -54,6 +56,7 @@ img{
     background: black;
     font-family: "Orbitron", sans-serif;
     animation: glowPulse 2.5s ease-in-out infinite;
+    text-align: center;
 }
 /* 发光闪烁动画 */
 @keyframes glowPulse {
@@ -139,7 +142,7 @@ img{
     width: 100%;
     display: flex;
     justify-content: flex-start;
-    margin: 10px 0;
+    margin: 20px 0;
 }
 .right_text_chart{
     width: 100%;
@@ -155,6 +158,7 @@ img{
     padding: 10px;
     border-radius: 5px;
     text-align: justify;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
 }
 .right_text_chart>p{
     background: #95EC69;
@@ -174,4 +178,44 @@ img{
     width: 0%;
     z-index: 100;
     transition: width 0.1s ease;
+}
+
+
+.con_box{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.icon{
+    width: 280px;
+    height: 280px;
+    border: 2px solid white;
+    border-radius: 20px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-size: 40px;
+    font-family: "Bangers", system-ui;
+
+    cursor: pointer;
+    transition: all 0.3s;
+}
+.icon:hover{
+    background-color: white;
+    color: black;
+}
+.icon>span{
+    font-size: 100px;
+    font-family: "Permanent Marker", cursive;
+}
+.click_text{
+    color: white;
+    margin-top: 20px;
+    font-size: 26px;
+    font-family: "Bangers", system-ui;
 }
